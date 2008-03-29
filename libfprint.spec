@@ -2,7 +2,6 @@
 # Conditional build:
 %bcond_with	static_libs	# don't build static library
 #
-
 Summary:	Fingerprint reader library
 Summary(pl.UTF-8):	Biblioteka do obsługi czytników linii papilarnych
 Name:		libfprint
@@ -65,8 +64,12 @@ Statyczna biblioteka fprint.
 
 %install
 rm -rf $RPM_BUILD_ROOT
+install -d $RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{version}
+
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
+
+install examples/*.c $RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{version}
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -85,6 +88,7 @@ rm -rf $RPM_BUILD_ROOT
 %dir %{_includedir}/libfprint
 %{_includedir}/libfprint/fprint.h
 %{_pkgconfigdir}/libfprint.pc
+%{_examplesdir}/%{name}-%{version}
 
 %if %{with static_libs}
 %files static
