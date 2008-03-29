@@ -1,14 +1,22 @@
+#
+# Conditional build:
+%bcond_with	static_libs	# don't build static library
+#
+
 Summary:	Fingerprint reader library
 Summary(pl.UTF-8):	Biblioteka do obsługi czytników linii papilarnych
 Name:		libfprint
 Version:	0.0.6
-Release:	0.5
+Release:	0.6
 License:	LGPL v2.1
 Group:		Libraries
 Source0:	http://dl.sourceforge.net/fprint/%{name}-%{version}.tar.bz2
 # Source0-md5:	4f47b46021b186488b60aaa97f90fe43
 URL:		http://reactivated.net/fprint/wiki/Libfprint
+BuildRequires:	ImageMagick-devel
+BuildRequires:	glib2-devel
 BuildRequires:	libusb-devel
+BuildRequires:	openssl-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -34,11 +42,25 @@ libfprint header files.
 %description devel -l pl.UTF-8
 Pliki nagłówkowe libfprint.
 
+%package static
+Summary:	Static fprint library
+Summary(pl.UTF-8):	Statyczna biblioteka fprint
+Group:		Development/Libraries
+Requires:	%{name}-devel = %{version}-%{release}
+
+%description static
+Static fprint library.
+
+%description static -l pl.UTF-8
+Statyczna biblioteka fprint.
+
 %prep
 %setup -q
 
 %build
-%configure
+%configure \
+	%{!?with_static_libs:--disable-static}
+
 %{__make}
 
 %install
@@ -54,6 +76,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
+%doc AUTHORS ChangeLog HACKING README THANKS TODO
 %attr(755,root,root) %{_libdir}/libfprint.so*
 
 %files devel
@@ -62,3 +85,9 @@ rm -rf $RPM_BUILD_ROOT
 %dir %{_includedir}/libfprint
 %{_includedir}/libfprint/fprint.h
 %{_pkgconfigdir}/libfprint.pc
+
+%if %{with static_libs}
+%files static
+%defattr(644,root,root,755)
+%{_libdir}/libfprint.a
+%endif
