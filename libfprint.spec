@@ -6,7 +6,7 @@ Summary:	Fingerprint reader library
 Summary(pl.UTF-8):	Biblioteka do obsługi czytników linii papilarnych
 Name:		libfprint
 Version:	0.0.6
-Release:	0.6
+Release:	0.7
 License:	LGPL v2.1
 Group:		Libraries
 Source0:	http://dl.sourceforge.net/fprint/%{name}-%{version}.tar.bz2
@@ -14,7 +14,7 @@ Source0:	http://dl.sourceforge.net/fprint/%{name}-%{version}.tar.bz2
 URL:		http://reactivated.net/fprint/wiki/Libfprint
 BuildRequires:	ImageMagick-devel
 BuildRequires:	glib2-devel
-BuildRequires:	libusb-devel
+BuildRequires:	libusb-compat-devel
 BuildRequires:	openssl-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
