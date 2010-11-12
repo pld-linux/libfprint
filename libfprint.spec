@@ -25,7 +25,7 @@ for application developers to add support for consumer fingerprint
 readers to their software.
 
 %description -l pl.UTF-8
-Napisana w C, biblioteka o otwartym kodzie, zaprojektowana aby ułatwić
+Napisana w C biblioteka o otwartym kodzie, zaprojektowana aby ułatwić
 programistom dodawanie obsługi czytników linii papilarnych do ich
 oprogramowania.
 
