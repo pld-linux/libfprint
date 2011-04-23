@@ -75,6 +75,7 @@ Reguły udeva dla libfprint.
 
 %build
 %configure \
+	--disable-silent-rules \
 	%{?with_static_libs:--enable-static}
 
 %{__make}
