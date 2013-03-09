@@ -5,18 +5,21 @@
 Summary:	Fingerprint reader library
 Summary(pl.UTF-8):	Biblioteka do obsługi czytników linii papilarnych
 Name:		libfprint
-Version:	0.4.0
-Release:	2
+Version:	0.5.0
+Release:	1
 License:	LGPL v2.1+
 Group:		Libraries
-Source0:	http://people.freedesktop.org/~hadess/%{name}-%{version}.tar.bz2
-# Source0-md5:	844b7618a095d247c27eedce99313ed2
+Source0:	http://people.freedesktop.org/~hadess/%{name}-%{version}.tar.xz
+# Source0-md5:	65d118369a47a93be623816f54cdb847
 URL:		http://reactivated.net/fprint/wiki/Libfprint
 BuildRequires:	gdk-pixbuf2-devel >= 2.0
 BuildRequires:	glib2-devel >= 2.0.0
 BuildRequires:	libusb-devel >= 0.9.1
 BuildRequires:	nss-devel
 BuildRequires:	pkgconfig
+BuildRequires:	tar >= 1:1.22
+BuildRequires:	xz
+Requires:	libusb >= 0.9.1
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -118,4 +121,4 @@ rm -rf $RPM_BUILD_ROOT
 
 %files -n udev-libfprint
 %defattr(644,root,root,755)
-/etc/udev/rules.d/60-fprint-autosuspend.rules
+/lib/udev/rules.d/60-fprint-autosuspend.rules
