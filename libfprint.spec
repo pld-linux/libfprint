@@ -5,17 +5,17 @@
 Summary:	Fingerprint reader library
 Summary(pl.UTF-8):	Biblioteka do obsługi czytników linii papilarnych
 Name:		libfprint
-Version:	0.5.1
-Release:	2
+Version:	0.6.0
+Release:	1
 License:	LGPL v2.1+
 Group:		Libraries
 Source0:	http://people.freedesktop.org/~hadess/%{name}-%{version}.tar.xz
-# Source0-md5:	f52ac662d89fb82a441dacb0bac36c13
+# Source0-md5:	1e66f6e786348b46075368cc682450a8
 URL:		http://reactivated.net/fprint/wiki/Libfprint
-BuildRequires:	gdk-pixbuf2-devel >= 2.0
 BuildRequires:	glib2-devel >= 1:2.28
 BuildRequires:	libusb-devel >= 0.9.1
 BuildRequires:	nss-devel
+BuildRequires:	pixman-devel
 BuildRequires:	pkgconfig
 BuildRequires:	tar >= 1:1.22
 BuildRequires:	xz
@@ -38,10 +38,10 @@ Summary:	libfprint header files
 Summary(pl.UTF-8):	Pliki nagłówkowe libfprint
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
-Requires:	gdk-pixbuf2-devel >= 2.0
 Requires:	glib2-devel >= 1:2.28
 Requires:	libusb-devel >= 0.9.1
 Requires:	nss-devel
+Requires:	pixman-devel
 
 %description devel
 libfprint header files.
