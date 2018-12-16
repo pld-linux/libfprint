@@ -22,6 +22,7 @@ BuildRequires:	ninja
 BuildRequires:	nss-devel
 BuildRequires:	pixman-devel
 BuildRequires:	pkgconfig
+BuildRequires:	rpmbuild(macros) >= 1.727
 BuildRequires:	tar >= 1:1.22
 BuildRequires:	xz
 Requires:	glib2 >= 1:2.28
