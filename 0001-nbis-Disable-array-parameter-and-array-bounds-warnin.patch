@@ -1,0 +1,28 @@
+From 2d10d864d8bc4b952cf412f6e18e44412dba759a Mon Sep 17 00:00:00 2001
+From: Benjamin Berg <bberg@redhat.com>
+Date: Wed, 9 Dec 2020 15:46:23 +0100
+Subject: [PATCH] nbis: Disable array-parameter and array-bounds warnings
+
+NBIS just does weird things and while the array-parameter warning is
+easy to fix, the other is not trivial. So disable these warnings so that
+we can still build using newer GCC versions.
+---
+ libfprint/meson.build | 2 ++
+ 1 file changed, 2 insertions(+)
+
+diff --git a/libfprint/meson.build b/libfprint/meson.build
+index 96cfe9b..4d1d30c 100644
+--- a/libfprint/meson.build
++++ b/libfprint/meson.build
+@@ -234,6 +234,8 @@ libnbis = static_library('nbis',
+         '-Wno-error=redundant-decls',
+         '-Wno-redundant-decls',
+         '-Wno-discarded-qualifiers',
++        '-Wno-array-bounds',
++        '-Wno-array-parameter',
+     ]),
+     install: false)
+ 
+-- 
+2.26.2
+

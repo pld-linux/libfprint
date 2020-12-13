@@ -1,0 +1,22 @@
+--- libfprint-v1.90.6/libfprint/drivers/elan.h~	2020-12-09 13:30:53.000000000 +0100
++++ libfprint-v1.90.6/libfprint/drivers/elan.h	2020-12-13 11:30:59.890743558 +0100
+@@ -31,9 +31,10 @@
+ #define ELAN_0907 (1 << 0)
+ #define ELAN_0C03 (1 << 1)
+ #define ELAN_0C42 (1 << 2)
++#define ELAN_0C46 (1 << 3)
+ 
+ /* devices which don't require frame rotation before assembling */
+-#define ELAN_NOT_ROTATED ELAN_0C03
++#define ELAN_NOT_ROTATED ELAN_0C03 | ELAN_0C46
+ 
+ /* min FW version that supports calibration */
+ #define ELAN_MIN_CALIBRATION_FW 0x0138
+@@ -214,6 +214,7 @@
+   {.vid = ELAN_VEND_ID,  .pid = 0x0c32, .driver_data = ELAN_ALL_DEV},
+   {.vid = ELAN_VEND_ID,  .pid = 0x0c33, .driver_data = ELAN_ALL_DEV},
+   {.vid = ELAN_VEND_ID,  .pid = 0x0c42, .driver_data = ELAN_0C42},
++  {.vid = ELAN_VEND_ID,  .pid = 0x0c46, .driver_data = ELAN_0C46},
+   {.vid = ELAN_VEND_ID,  .pid = 0x0c4d, .driver_data = ELAN_ALL_DEV},
+   {.vid = 0,  .pid = 0,  .driver_data = 0},
+ };
