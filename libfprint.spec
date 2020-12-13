@@ -16,6 +16,7 @@ Patch1:		0001-nbis-Disable-array-parameter-and-array-bounds-warnin.patch
 URL:		https://fprint.freedesktop.org/
 BuildRequires:	glib2-devel >= 1:2.28
 BuildRequires:	gtk-doc
+BuildRequires:	gtk+3-devel
 BuildRequires:	libusb-devel >= 0.9.1
 BuildRequires:	meson >= 0.47.0
 BuildRequires:	ninja
@@ -67,6 +68,14 @@ Static fprint library.
 %description static -l pl.UTF-8
 Statyczna biblioteka fprint.
 
+%package demo
+Summary:	Example libfprint GTK+ image capture program
+Group:		Applications/System
+Requires:	%{name} = %{version}-%{release}
+
+%description demo
+Example libfprint GTK+ image capture program.
+
 %package apidocs
 Summary:	API documentation for libfprint library
 Summary(pl.UTF-8):	Dokumentacja API biblioteki libfprint
@@ -101,8 +110,7 @@ Reguły udeva dla libfprint.
 
 %build
 %meson build \
-	-Dx11-examples=true \
-	-Dgtk-examples=true
+	-Dgtk-examples=true \
 	%{!?with_static_libs:--default=library=shared}
 
 %meson_build -C build
@@ -142,6 +150,14 @@ rm -rf $RPM_BUILD_ROOT
 %{_libdir}/libfprint-2.a
 %endif
 
+%files demo
+%defattr(644,root,root,755)
+%attr(755,root,root) %{_bindir}/gtk-libfprint-test
+%{_desktopdir}/org.freedesktop.libfprint.Demo.desktop
+%{_iconsdir}/org.freedesktop.libfprint.Demo.png
+%{_datadir}/metainfo/org.freedesktop.libfprint.Demo.appdata.xml
+
+%defattr(644,root,root,755)
 %files apidocs
 %defattr(644,root,root,755)
 %{_gtkdocdir}/libfprint-2
