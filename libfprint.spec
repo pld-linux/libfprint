@@ -80,9 +80,7 @@ Example libfprint GTK+ image capture program.
 Summary:	API documentation for libfprint library
 Summary(pl.UTF-8):	Dokumentacja API biblioteki libfprint
 Group:		Documentation
-%if "%{_rpmversion}" >= "5"
 BuildArch:	noarch
-%endif
 
 %description apidocs
 API documentation for libfprint library.
