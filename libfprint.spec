@@ -13,7 +13,7 @@ BuildRequires:	glib2-devel >= 1:2.68
 BuildRequires:	gobject-introspection-devel
 BuildRequires:	gtk-doc
 BuildRequires:	gtk+3-devel
-BuildRequires:	gudev-devel
+BuildRequires:	libgudev-devel
 BuildRequires:	libgusb-devel >= 0.2.0
 BuildRequires:	meson >= 0.59.0
 BuildRequires:	ninja
