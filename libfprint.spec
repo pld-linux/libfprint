@@ -2,7 +2,7 @@ Summary:	Fingerprint reader library
 Summary(pl.UTF-8):	Biblioteka do obsługi czytników linii papilarnych
 Name:		libfprint
 Version:	1.94.10
-Release:	1
+Release:	2
 License:	LGPL v2.1+
 Group:		Libraries
 Source0:	https://gitlab.freedesktop.org/libfprint/libfprint/-/archive/v%{version}/%{name}-v%{version}.tar.bz2
