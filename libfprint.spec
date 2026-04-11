@@ -20,7 +20,7 @@ BuildRequires:	ninja
 BuildRequires:	openssl-devel >= 3.0
 BuildRequires:	pixman-devel
 BuildRequires:	pkgconfig
-BuildRequires:	rpmbuild(macros) >= 1.727
+BuildRequires:	rpmbuild(macros) >= 2.042
 BuildRequires:	tar >= 1:1.22
 BuildRequires:	xz
 Requires:	glib2 >= 1:2.68
@@ -76,7 +76,8 @@ Summary:	Udev rules for libfprint
 Summary(pl.UTF-8):	Reguły udeva dla libfprint
 Group:		Applications/System
 Requires:	%{name} = %{version}-%{release}
-Requires:	udev-core
+# fprint autosuspend rules included in udev since v248
+Requires:	udev-core >= 1:248
 
 %description -n udev-libfprint
 Udev rules for libfprint.
@@ -91,7 +92,9 @@ Reguły udeva dla libfprint.
 %build
 %meson \
 	-Dgtk-examples=true \
-	-Dinstalled-tests=false
+	-Dinstalled-tests=false \
+	-Dudev_hwdb=disabled \
+	-Dudev_rules=enabled
 
 %meson_build
 
@@ -111,15 +114,15 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc AUTHORS HACKING.md NEWS README.md THANKS
-%attr(755,root,root) %{_libdir}/libfprint-2.so.*.*.*
-%attr(755,root,root) %ghost %{_libdir}/libfprint-2.so.2
+%doc AUTHORS MAINTAINERS NEWS README.md THANKS
+%{_libdir}/libfprint-2.so.*.*.*
+%ghost %{_libdir}/libfprint-2.so.2
 %{_libdir}/girepository-1.0/FPrint-2.0.typelib
 %{_datadir}/metainfo/org.freedesktop.libfprint.metainfo.xml
 
 %files devel
 %defattr(644,root,root,755)
-%attr(755,root,root) %{_libdir}/libfprint-2.so
+%{_libdir}/libfprint-2.so
 %{_includedir}/libfprint-2
 %{_pkgconfigdir}/libfprint-2.pc
 %{_datadir}/gir-1.0/FPrint-2.0.gir
