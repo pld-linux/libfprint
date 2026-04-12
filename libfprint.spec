@@ -54,11 +54,15 @@ Pliki nagłówkowe libfprint.
 
 %package demo
 Summary:	Example libfprint GTK+ image capture program
+Summary(pl.UTF-8):	Przykładowy program GTK+ do przechwytywania obrazów z libfprint
 Group:		Applications/System
 Requires:	%{name} = %{version}-%{release}
 
 %description demo
 Example libfprint GTK+ image capture program.
+
+%description demo -l pl.UTF-8
+Przykładowy program GTK+ do przechwytywania obrazów z libfprint.
 
 %package apidocs
 Summary:	API documentation for libfprint library
