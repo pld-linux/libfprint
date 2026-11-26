@@ -1,12 +1,12 @@
 Summary:	Fingerprint reader library
 Summary(pl.UTF-8):	Biblioteka do obsługi czytników linii papilarnych
 Name:		libfprint
-Version:	1.94.10
-Release:	3
+Version:	1.94.100
+Release:	1
 License:	LGPL v2.1+
 Group:		Libraries
 Source0:	https://gitlab.freedesktop.org/libfprint/libfprint/-/archive/v%{version}/%{name}-v%{version}.tar.bz2
-# Source0-md5:	12482afcfd9026d000d06dbe762b528f
+# Source0-md5:	f7658aa7beb7681d7ce4e8a37b116d93
 Patch0:		vaio-sx.patch
 URL:		https://fprint.freedesktop.org/
 BuildRequires:	glib2-devel >= 1:2.68
@@ -15,7 +15,7 @@ BuildRequires:	gtk-doc
 BuildRequires:	gtk+3-devel
 BuildRequires:	libgudev-devel
 BuildRequires:	libgusb-devel >= 0.2.0
-BuildRequires:	meson >= 0.59.0
+BuildRequires:	meson >= 0.62.0
 BuildRequires:	ninja
 BuildRequires:	openssl-devel >= 3.0
 BuildRequires:	pixman-devel
